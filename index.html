@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  PUDIM QUE VENDE — Página de vendas
+  ============================================================
+  PLACEHOLDERS (substitua TODAS as ocorrências antes de publicar):
+
+  CHECKOUT (já configurado) https://pay.cakto.com.br/5smrgaw_1156013
+                            Está em TODOS os botões de compra (5: hero, após
+                            "O que você recebe", oferta, CTA final e barra fixa).
+                            Para trocar, substitua o link nos 5 lugares.
+  PREÇO (já configurado)    R$ 12,99 promocional, "De R$ 90,00". Aparece na oferta,
+                            na nota após "O que você recebe", no CTA final, na barra
+                            fixa, nas meta tags e no evento do Pixel (script.js).
+  IMAGEM DO TOPO (feito)    img/pudim-720.webp e img/pudim-1100.webp (fundo transparente).
+  {{IMAGEM_PRODUTO}}        Mockup do ebook na seção "Conheça o Pudim Que Vende".
+                            Hoje há uma capa desenhada em CSS. Troque pelo <img>
+                            comentado dentro de .product-media (WebP, loading="lazy").
+  {{META_PIXEL_ID}}         ID do Pixel da Meta (no <head>, bloco comentado).
+  SITE (publicado)          https://cursodepudim.vercel.app (canonical + Open Graph).
+                            Imagem de compartilhamento: img/og-image.jpg (1200×630).
+  Política/Termos           Links do rodapé comentados até as páginas existirem.
+  Depoimentos               Seção "Quem já colocou a mão na massa" está OCULTA
+                            (atributo hidden). Só reative com depoimentos REAIS.
+  ============================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pudim Que Vende — 30 receitas de pudim sem forno para vender</title>
+  <meta name="description" content="Aprenda a fazer pudins que vendem sozinhos, sem forno e começando do zero. 30 receitas testadas + 11 caldas + dica de venda em cada receita. De R$ 90 por apenas R$ 12,99, com 7 dias de garantia.">
+  <meta name="theme-color" content="#7A4326">
+  <link rel="canonical" href="https://cursodepudim.vercel.app/">
+
+  <!-- Open Graph (visual do link no WhatsApp/Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://cursodepudim.vercel.app/">
+  <meta property="og:title" content="Pudim Que Vende — pudins que vendem sozinhos, sem forno">
+  <meta property="og:description" content="30 receitas testadas + 11 caldas para transformar ingredientes simples em renda extra. De R$ 90 por R$ 12,99, com 7 dias de garantia.">
+  <meta property="og:image" content="https://cursodepudim.vercel.app/img/og-image.jpg">
+  <meta property="og:image:alt" content="Pudim de leite com calda de caramelo — Pudim Que Vende">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M5 27 8.5 9h15L27 27c-3.5 2.6-18.5 2.6-22 0Z' fill='%23D9A353'/%3E%3Cellipse cx='16' cy='9' rx='7.5' ry='3' fill='%237A4326'/%3E%3Cellipse cx='16' cy='8.8' rx='2.4' ry='1' fill='%233B2A1E'/%3E%3Cpath d='M10 10.5v6a1.6 1.6 0 0 0 3.2 0v-5.2M19.5 11v8.5a1.5 1.5 0 0 0 3 0V10.5' fill='%237A4326'/%3E%3C/svg%3E">
+
+  <!-- Fontes: carregamento não bloqueante + font-display: swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,500&amp;family=Poppins:wght@600;700;800&amp;display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,500&amp;family=Poppins:wght@600;700;800&amp;display=swap"></noscript>
+
+  <!-- Aquece a conexão com o checkout para ele abrir mais rápido após o clique -->
+  <link rel="preconnect" href="https://pay.cakto.com.br">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+  <!-- META PIXEL AQUI -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '{{META_PIXEL_ID}}');
+    fbq('track', 'PageView');
+  </script>
+  -->
+</head>
+<body>
+  <a class="skip-link" href="#oferta">Pular para a oferta</a>
+
+  <header class="hero drip" id="topo">
+    <div class="wrap hero-top">
+      <a class="brand" href="#topo" aria-label="Pudim Que Vende, voltar ao topo">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M6 25 9 10h14l3 15c-3 2.2-17 2.2-20 0Z" fill="#D9A353"/><ellipse cx="16" cy="10" rx="7" ry="2.6" fill="#FCF5EC"/><ellipse cx="16" cy="10" rx="2.2" ry=".9" fill="#7A4326"/><path d="M10.4 11.6v4.6a1.3 1.3 0 0 0 2.6 0v-4M20 12v6.4a1.2 1.2 0 0 0 2.4 0v-6.8" fill="#FCF5EC"/></svg>
+        <span translate="no">Pudim Que Vende</span>
+      </a>
+    </div>
+
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Renda extra na sua cozinha</p>
+        <h1>Aprenda a fazer pudins que <span class="accent">vendem sozinhos</span> — sem forno e começando do zero</h1>
+        <p class="hero-sub">30 receitas testadas + 11 caldas para transformar ingredientes simples em uma renda extra todo fim de semana. Mesmo que você nunca tenha vendido nada na vida.</p>
+
+        <div class="cta-block" data-cta-zone>
+          <a class="btn-cta" href="https://pay.cakto.com.br/5smrgaw_1156013" data-cta="hero">Quero começar a vender <span aria-hidden="true">→</span></a>
+          <ul class="trust" aria-label="Garantias da compra">
+            <li><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 10.5 8 14.5 16 6" /></svg>Acesso imediato</li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><rect x="4" y="9" width="12" height="8.5" rx="2"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9"/></svg>Pagamento seguro</li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 2.5 16 5v5c0 3.8-2.6 6.4-6 7.5-3.4-1.1-6-3.7-6-7.5V5Z"/><path d="m7.3 10 1.9 1.9 3.5-3.6"/></svg>Garantia de 7&nbsp;dias</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="hero-media">
+        <!-- Imagem da primeira dobra: sem loading="lazy" e com prioridade alta -->
+        <img src="img/pudim-720.webp"
+             srcset="img/pudim-720.webp 720w, img/pudim-1100.webp 1100w"
+             sizes="(min-width: 900px) 600px, calc(100vw - 40px)"
+             width="1100" height="721"
+             alt="Pudim de leite condensado com furo no meio, coberto de calda de caramelo brilhante, servido em um prato"
+             fetchpriority="high" decoding="async">
+      </figure>
+    </div>
+  </header>
+
+  <main>
+    <!-- 4.2 Identificação da dor -->
+    <section class="section pain" aria-labelledby="dor-titulo">
+      <div class="wrap">
+        <h2 id="dor-titulo" class="section-title">Você já pensou em ganhar um dinheiro extra com a sua cozinha… <span class="accent">mas travou por causa disso?</span></h2>
+        <ul class="pain-list">
+          <li><span class="mark mark-x" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="m5.5 5.5 9 9m0-9-9 9"/></svg></span><q>Não tenho forno nem equipamento caro.</q></li>
+          <li><span class="mark mark-x" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="m5.5 5.5 9 9m0-9-9 9"/></svg></span><q>Meu pudim sempre desanda, racha ou fica cheio de furinhos.</q></li>
+          <li><span class="mark mark-x" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="m5.5 5.5 9 9m0-9-9 9"/></svg></span><q>Não sei quanto cobrar — tenho medo de vender no prejuízo.</q></li>
+          <li><span class="mark mark-x" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="m5.5 5.5 9 9m0-9-9 9"/></svg></span><q>Não faço ideia de como divulgar e conseguir clientes.</q></li>
+        </ul>
+        <div class="turn">
+          <p class="turn-lead">A verdade? Nenhum desses é o seu problema.</p>
+          <p class="turn-body">O problema é nunca ter tido o método certo na mão. <strong>É isso que muda hoje.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.3 Apresentação do produto -->
+    <section class="section band product" aria-labelledby="produto-titulo">
+      <div class="wrap product-grid">
+        <figure class="product-media">
+          <!-- {{IMAGEM_PRODUTO}}: substitua a capa em CSS abaixo por:
+          <img src="img/ebook-mockup.webp" width="900" height="1100" alt="Mockup do ebook Pudim Que Vende aberto no celular e no tablet" loading="lazy" decoding="async">
+          -->
+          <div class="ebook" aria-hidden="true">
+            <div class="ebook-cover">
+              <span class="ebook-kicker">Ebook</span>
+              <span class="ebook-title">Pudim<br>Que Vende</span>
+              <span class="ebook-rule"></span>
+              <span class="ebook-sub">30 receitas sem forno<br>+ 11 caldas</span>
+            </div>
+          </div>
+        </figure>
+        <div class="product-copy">
+          <h2 id="produto-titulo" class="section-title">Conheça o <span class="accent">Pudim Que Vende</span></h2>
+          <p>Um guia direto ao ponto, feito para quem quer <strong>vender</strong> — não só cozinhar. São 30 receitas de pudim que dispensam forno (banho-maria no fogão, panela de pressão ou geladeira), o passo a passo para acertar o ponto liso e firme toda vez, e uma dica de venda em cada receita. Do zero à primeira encomenda, sem enrolação.</p>
+          <p class="methods-label">Sem forno, de 3 jeitos:</p>
+          <ul class="methods">
+            <li>Banho-maria no fogão</li>
+            <li>Panela de pressão</li>
+            <li>Geladeira</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.4 O que você recebe -->
+    <section class="section stack" aria-labelledby="recebe-titulo">
+      <div class="wrap">
+        <h2 id="recebe-titulo" class="section-title section-title--center">O que você <span class="accent">recebe</span></h2>
+        <ul class="stack-grid">
+          <li class="card">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M4.5 19.5 7 8.5h10l2.5 11c-2.6 1.5-12.4 1.5-15 0Z"/><ellipse cx="12" cy="8.5" rx="5" ry="1.8"/><path d="M9.2 10.2v3.3M14.6 10.3v5"/></svg></span>
+            <h3>30 receitas de pudim sem forno</h3>
+            <p>Clássicos, gourmet, gelados e de pote, todos com métodos simples.</p>
+          </li>
+          <li class="card">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.5c3.2 4.2 5.5 7.1 5.5 10.2a5.5 5.5 0 0 1-11 0c0-3.1 2.3-6 5.5-10.2Z"/><path d="M9.6 14.4a2.6 2.6 0 0 0 2.2 2.4"/></svg></span>
+            <h3>11 caldas irresistíveis</h3>
+            <p>A mesma receita vira vários produtos e você cobra mais caro.</p>
+          </li>
+          <li class="card">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M11 4.5c.7 4 2.4 5.8 6.5 6.5-4.1.7-5.8 2.5-6.5 6.5-.7-4-2.4-5.8-6.5-6.5 4.1-.7 5.8-2.5 6.5-6.5Z"/><path d="M18.5 3.5v3M17 5h3M18 17.5v3M16.5 19h3"/></svg></span>
+            <h3>O segredo do pudim liso</h3>
+            <p>A técnica para nunca mais ter furinhos (é o que faz o cliente voltar).</p>
+          </li>
+          <li class="card">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3.5 11.6V4.8a1.3 1.3 0 0 1 1.3-1.3h6.8l8.6 8.6a1.6 1.6 0 0 1 0 2.2l-6.3 6.3a1.6 1.6 0 0 1-2.2 0Z"/><circle cx="8.2" cy="8.2" r="1.5"/></svg></span>
+            <h3>Dica de venda em cada receita</h3>
+            <p>O que falar, como oferecer e o que destaca cada sabor.</p>
+          </li>
+          <li class="card">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="m3.8 7.2 8.2 6 8.2-6"/></svg></span>
+            <h3>Acesso imediato e vitalício</h3>
+            <p>Receba no seu e-mail logo após o pagamento e acesse quando quiser.</p>
+          </li>
+          <li class="card">
+            <span class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="6.5" y="2.5" width="11" height="19" rx="2.4"/><path d="M10.5 18.3h3"/></svg></span>
+            <h3>Feito para o celular</h3>
+            <p>Leia e cozinhe direto do telefone, sem imprimir nada.</p>
+          </li>
+        </ul>
+        <div class="cta-block cta-block--center" data-cta-zone>
+          <a class="btn-cta" href="https://pay.cakto.com.br/5smrgaw_1156013" data-cta="value-stack">Quero começar a vender <span aria-hidden="true">→</span></a>
+          <p class="cta-note">Tudo isso de <del>R$&nbsp;90</del> por <strong>R$&nbsp;12,99</strong> · Garantia de 7&nbsp;dias</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.5 Para quem é -->
+    <section class="section band fit" aria-labelledby="paraquem-titulo">
+      <div class="wrap wrap--narrow">
+        <h2 id="paraquem-titulo" class="section-title">Isso é <span class="accent">para você</span> se…</h2>
+        <ul class="check-list check-list--lg">
+          <li>Quer uma renda extra sem depender de patrão nem de horário.</li>
+          <li>Ama cozinhar (ou quer aprender) e sonha em ganhar dinheiro com isso.</li>
+          <li>Está começando do zero e não tem equipamento profissional.</li>
+          <li>Já tentou vender doce, mas não sabia precificar nem divulgar.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4.6 Oferta + preço -->
+    <section class="section offer" id="oferta" aria-labelledby="oferta-titulo">
+      <div class="wrap">
+        <div class="offer-card" data-cta-zone>
+          <h2 id="oferta-titulo" class="section-title section-title--center">Comece hoje <span class="accent">por menos que uma pizza</span></h2>
+          <ul class="check-list recap">
+            <li>30 receitas de pudim sem forno</li>
+            <li>11 caldas irresistíveis</li>
+            <li>O segredo do pudim liso</li>
+            <li>Dica de venda em cada receita</li>
+            <li>Acesso imediato e vitalício</li>
+            <li>Feito para o celular</li>
+          </ul>
+          <div class="price">
+            <p class="promo-badge">Preço promocional · 85% OFF</p>
+            <p class="price-from">De <del><span class="sr-only">preço original </span>R$&nbsp;90,00</del></p>
+            <p class="price-now"><span class="price-label">por apenas</span> <strong class="price-value"><span class="price-cur">R$</span>12,99</strong></p>
+            <p class="price-terms">à vista ou parcelado</p>
+          </div>
+          <a class="btn-cta btn-cta--xl" href="https://pay.cakto.com.br/5smrgaw_1156013" data-cta="offer">Quero o Pudim Que Vende <span aria-hidden="true">→</span></a>
+          <p class="reassure">Pagamento único. Sem mensalidade. Acesso imediato.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.7 Garantia -->
+    <section class="section band guarantee" aria-labelledby="garantia-titulo">
+      <div class="wrap guarantee-grid">
+        <svg class="seal" viewBox="0 0 200 200" role="img" aria-label="Selo: garantia de 7&nbsp;dias">
+          <defs><path id="seal-ring" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0"/></defs>
+          <circle cx="100" cy="100" r="96" fill="#D9A353"/>
+          <circle cx="100" cy="100" r="88" fill="none" stroke="#7A4326" stroke-width="2" stroke-dasharray="3 5"/>
+          <circle cx="100" cy="100" r="58" fill="#7A4326"/>
+          <text font-family="Poppins, 'Poppins Fallback', Arial, sans-serif" font-weight="700" font-size="14.5" letter-spacing="3.2" fill="#3B2A1E"><textPath href="#seal-ring">GARANTIA INCONDICIONAL • RISCO ZERO •</textPath></text>
+          <text x="100" y="108" text-anchor="middle" font-family="Poppins, 'Poppins Fallback', Arial, sans-serif" font-weight="800" font-size="56" fill="#FCF5EC">7</text>
+          <text x="100" y="134" text-anchor="middle" font-family="Poppins, 'Poppins Fallback', Arial, sans-serif" font-weight="700" font-size="15" letter-spacing="3" fill="#FCF5EC">DIAS</text>
+        </svg>
+        <div>
+          <h2 id="garantia-titulo" class="section-title">Risco zero: <span class="accent">a garantia é toda sua</span></h2>
+          <p>Compre, acesse tudo e teste as receitas. Se em 7&nbsp;dias você achar que não é para você, devolvemos 100% do seu dinheiro. Sem burocracia, sem pergunta nenhuma. <strong>O risco é todo nosso.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.8 PROVA SOCIAL
+         ATENÇÃO: só publique com depoimentos REAIS e AUTORIZADOS por escrito pelos clientes.
+         Nunca coloque texto fictício no ar (Código de Defesa do Consumidor, CONAR e políticas da Meta).
+         Para ativar: preencha os 3 cards e remova o atributo "hidden" da <section>. -->
+    <section class="section proof" aria-labelledby="prova-titulo" hidden>
+      <div class="wrap">
+        <h2 id="prova-titulo" class="section-title section-title--center">Quem já colocou <span class="accent">a mão na massa</span></h2>
+        <ul class="proof-grid">
+          <li class="card testimonial">
+            <blockquote><p>[Depoimento real do cliente]</p></blockquote>
+            <p class="testimonial-name">[Nome]</p>
+          </li>
+          <li class="card testimonial">
+            <blockquote><p>[Depoimento real do cliente]</p></blockquote>
+            <p class="testimonial-name">[Nome]</p>
+          </li>
+          <li class="card testimonial">
+            <blockquote><p>[Depoimento real do cliente]</p></blockquote>
+            <p class="testimonial-name">[Nome]</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4.9 FAQ -->
+    <section class="section faq" aria-labelledby="faq-titulo">
+      <div class="wrap wrap--narrow">
+        <h2 id="faq-titulo" class="section-title section-title--center">Perguntas <span class="accent">frequentes</span></h2>
+        <div class="faq-list">
+          <details name="faq">
+            <summary>Preciso de forno?</summary>
+            <p>Não. Todas as receitas são feitas no fogão, na panela de pressão ou na geladeira.</p>
+          </details>
+          <details name="faq">
+            <summary>Nunca vendi nada / não sei cozinhar bem. Serve pra mim?</summary>
+            <p>Sim. O passo a passo é para iniciantes, e cada receita traz uma dica de venda.</p>
+          </details>
+          <details name="faq">
+            <summary>Como eu recebo o material?</summary>
+            <p>No seu e-mail, logo após a confirmação do pagamento. O acesso é imediato e vitalício.</p>
+          </details>
+          <details name="faq">
+            <summary>É seguro comprar?</summary>
+            <p>Sim. O pagamento é processado em ambiente seguro e você tem 7&nbsp;dias de garantia.</p>
+          </details>
+          <details name="faq">
+            <summary>Consigo ler pelo celular?</summary>
+            <p>Sim, o material é otimizado para o celular. Não precisa imprimir.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4.10 CTA final -->
+    <section class="final drip" aria-labelledby="final-titulo" data-cta-zone>
+      <div class="wrap wrap--narrow final-inner">
+        <h2 id="final-titulo">Sua próxima renda extra pode começar <span class="accent">neste fim de semana</span></h2>
+        <p>30 receitas, 11 caldas e o passo a passo para vender. Tudo por <strong>R$&nbsp;12,99</strong> no preço promocional, com 7&nbsp;dias de garantia.</p>
+        <a class="btn-cta btn-cta--xl" href="https://pay.cakto.com.br/5smrgaw_1156013" data-cta="final">Quero começar agora <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer-brand"><span translate="no">Pudim Que Vende</span> · © <span data-year>2026</span></p>
+      <!-- Quando existirem as páginas, reative:
+      <p class="footer-links"><a href="politica-de-privacidade.html">Política de Privacidade</a> <span aria-hidden="true">·</span> <a href="termos.html">Termos de Uso</a></p> -->
+      <p class="disclaimer">Este produto não garante resultados financeiros. Os ganhos dependem do esforço e da dedicação de cada pessoa.</p>
+    </div>
+  </footer>
+
+  <!-- CTA fixo (mobile): aparece depois da primeira dobra e some sobre as seções de CTA -->
+  <div class="sticky-cta" data-sticky-cta>
+    <p class="sticky-price"><del><span class="sr-only">de </span>R$&nbsp;90</del> <strong>R$&nbsp;12,99</strong></p>
+    <a class="btn-cta btn-cta--sm" href="https://pay.cakto.com.br/5smrgaw_1156013" data-cta="sticky">Quero começar <span aria-hidden="true">→</span></a>
+  </div>
+</body>
+</html>
